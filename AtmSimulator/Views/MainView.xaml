@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:AtmSimulator.ViewModels"
+             x:Class="AtmSimulator.Views.MainView"
+             x:DataType="viewModels:MainViewModel">
+    <ContentPage.Content>
+        <Grid>
+            <Grid ColumnDefinitions="*,auto"
+                  IsEnabled="False"
+                  Margin="10">
+                <VerticalStackLayout Grid.Column="0"
+                                     VerticalOptions="Center"
+                                     HorizontalOptions="Center">
+                    <Label Text="Witamy w sieci bankomatów"
+                           FontSize="24"/>
+                    <Label Text="{Binding Store.AtmNetworkName}"
+                           FontSize="24"/>
+                </VerticalStackLayout>
+
+                <Grid RowDefinitions="*,auto"
+                      Grid.Column="1">
+                    <VerticalStackLayout Grid.Row="0"
+                                         Spacing="10">
+                        <Button Text="Włóż kartę"/>
+                        <Button Text="Konto"/>
+                        <Button Text="Wpłaty"/>
+                        <Button Text="Wypłaty"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Row="1">
+                        <Button Text="Koniec"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </Grid>
+            <Grid ColumnDefinitions="*,*"
+                  RowDefinitions="*,*,auto">
+                <VerticalStackLayout Grid.Row="0"
+                                     Grid.Column="0">
+
+                </VerticalStackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

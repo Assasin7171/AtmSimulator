@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="using:AtmSimulator.ViewModels"
+             x:Class="AtmSimulator.Views.AdminView"
+             x:DataType="viewModels:AdminViewModel">
+    <ContentPage.Content>
+        <Grid ColumnDefinitions="*,*"
+              RowDefinitions="*,auto"
+              Margin="10"
+              RowSpacing="10"
+              ColumnSpacing="10">
+            <VerticalStackLayout Grid.Column="0"
+                                 Grid.Row="0"
+                                 Spacing="20">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Obsługiwane karty" />
+                    <Grid ColumnDefinitions="auto,*"
+                          RowDefinitions="*,*,*,*"
+                          RowSpacing="10">
+                        <CheckBox Grid.Row="0"
+                                  Grid.Column="0"
+                                  VerticalOptions="Center" />
+                        <Label Grid.Row="0"
+                               Grid.Column="1"
+                               Text="Visa"
+                               VerticalOptions="Center" />
+
+                        <CheckBox Grid.Row="1"
+                                  Grid.Column="0"
+                                  VerticalOptions="Center" />
+                        <Label Grid.Row="1"
+                               Grid.Column="1"
+                               Text="American Express"
+                               VerticalOptions="Center" />
+
+                        <CheckBox Grid.Row="2"
+                                  Grid.Column="0"
+                                  VerticalOptions="Center" />
+                        <Label Grid.Row="2"
+                               Grid.Column="1"
+                               Text="Visa Electron"
+                               VerticalOptions="Center" />
+
+                        <CheckBox Grid.Row="3"
+                                  Grid.Column="0"
+                                  VerticalOptions="Center" />
+                        <Label Grid.Row="3"
+                               Grid.Column="1"
+                               Text="Mastercard"
+                               VerticalOptions="Center" />
+                    </Grid>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Limity wpłat i wypłat" />
+                    <Grid ColumnDefinitions="auto,200"
+                          RowDefinitions="*,*"
+                          ColumnSpacing="10"
+                          RowSpacing="10">
+                        <Label Text="Wpłat:"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               VerticalTextAlignment="Center" />
+                        <Entry Grid.Row="0"
+                               Grid.Column="1"
+                               Text="{Binding DepositLimit}"/>
+
+                        <Label Text="Wypłat:"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               VerticalTextAlignment="Center" />
+                        <Entry Grid.Row="1"
+                               Grid.Column="1"
+                               Text="{Binding WithdrawalLimit}"/>
+                    </Grid>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1"
+                                 Grid.Row="0"
+                                 Grid.RowSpan="2">
+                <Label Text="Nazwa sieci bankomatów"/>
+                <Entry Text="{Binding MainStore.AtmNetworkName}"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="1"
+                                 Grid.Column="1"
+                                 HorizontalOptions="End">
+                <HorizontalStackLayout>
+                    <CheckBox VerticalOptions="Center"/>
+                    <Label Text="Wylogować podczas zapisywania ustawień"
+                           VerticalTextAlignment="Center"/>
+                </HorizontalStackLayout>
+                <Button Text="Zapisz i zresetuj urządzenie"
+                        Command="{Binding SaveSettingsCommand}"/>
+            </VerticalStackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

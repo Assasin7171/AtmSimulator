@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AtmSimulator.Views.AdminLoginView"
+             xmlns:vm="clr-namespace:AtmSimulator.ViewModels"
+             x:DataType="vm:AdminLoginViewModel">
+    <ContentPage.Content>
+        <Border VerticalOptions="Center"
+                HorizontalOptions="Center"
+                WidthRequest="250"
+                Padding="20"
+                StrokeThickness="5"
+                StrokeShape="RoundRectangle 40,0,0,40">
+            <Border.Stroke>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="Orange"
+                                  Offset="0.1" />
+                    <GradientStop Color="BlueViolet"
+                                  Offset="1.0" />
+                </LinearGradientBrush>
+            </Border.Stroke>
+            <VerticalStackLayout Spacing="20">
+                <Label Text="Login"
+                       HorizontalTextAlignment="Center" />
+                <Entry Text="{Binding Login}"/>
+                <Label Text="Password"
+                       HorizontalTextAlignment="Center" />
+                <Entry IsPassword="True"
+                       Text="{Binding Password}"/>
+                <Button Text="Login"
+                        Command="{Binding LoginInAsyncCommand}"/>
+            </VerticalStackLayout>
+
+        </Border>
+    </ContentPage.Content>
+</ContentPage>
